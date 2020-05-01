@@ -7,6 +7,7 @@ import data.ResultSparQL_Acteur;
 import data.ResultSparQL_Titre;
 import jdbc.JdbcRequest;
 import jena.Requetes_Jena;
+import rest.XPathManager;
 
 public class Mediateur {
 	
@@ -21,6 +22,10 @@ public class Mediateur {
 		movie.setActeurs(result.getActeurs());
 		movie.setDirecteurs(result.getDirecteurs());
 		movie.setProducteurs(result.getProducteurs());
+		
+		String resume = XPathManager.getResume(titre);
+		
+		movie.setResume(resume);
 		
 		return formatReturn("title", movie);
 	}

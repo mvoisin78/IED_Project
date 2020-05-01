@@ -16,7 +16,6 @@ import data.ResultSparQL_Acteur;
 import data.ResultSparQL_Titre;
 
 public class Requetes_Jena {
-
 	
 	public ResultSparQL_Titre requeteTitre(String titleStr) {
 		ResultSparQL_Titre result = new ResultSparQL_Titre();
