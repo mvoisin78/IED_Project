@@ -58,7 +58,9 @@ public class Mediateur {
 			}
 			resultString += formatReturn("actor", movie);
 		}
-		
+		if(resultString.equalsIgnoreCase("")) {
+			resultString = "Aucun résultat trouvé";
+		}
 		
 		return resultString;
 	}
@@ -66,32 +68,66 @@ public class Mediateur {
 	
 	public String formatReturn(String req, Movie movie) {
 		String result = "";
+		String nonDispo = "Non disponible";
 		switch(req) {
 			case "title":
-				result += "Titre: "+movie.getTitre();
-				result += "\nDate: "+movie.getDate();
-				result += "\nGenre: "+movie.getGenre();
-				result += "\nDistributeur: "+movie.getDistributeur();
-				result += "\nBudget: "+movie.getBudget();
-				result += "\nRevenus US: "+movie.getRevenusUS();
-				result += "\nRevenus Monde: "+movie.getRevenusMonde();
-				
-				result += "\nActeurs: ";
-				for(String s: movie.getActeurs()) {
-					result += s +", ";
+				if(movie.getTitre()==null) {
+					result = "Aucun film trouvé";
 				}
-				result += "\nProducteurs: ";
-				for(String s: movie.getProducteurs()) {
-					result += s +", ";
-				}
-				result += "\nDirecteurs: ";
-				for(String s: movie.getDirecteurs()) {
-					result += s +", ";
-				}
+				else {
+					if(movie.getDate()==null) {
+						movie.setDate(nonDispo);
+					}
+					if(movie.getGenre()==null) {
+						movie.setGenre(nonDispo);
+					}
+					if(movie.getDistributeur()==null) {
+						movie.setDistributeur(nonDispo);
+					}
+					if(movie.getRevenusUS()==null) {
+						movie.setRevenusUS(nonDispo);
+					}
+					if(movie.getRevenusMonde()==null) {
+						movie.setRevenusMonde(nonDispo);
+					}
+					if(movie.getResume()==null) {
+						movie.setResume(nonDispo);
+					}
+					result += "Titre: "+movie.getTitre();
+					result += "\nDate: "+movie.getDate();
+					result += "\nGenre: "+movie.getGenre();
+					result += "\nDistributeur: "+movie.getDistributeur();
+					result += "\nBudget: "+movie.getBudget();
+					result += "\nRevenus US: "+movie.getRevenusUS();
+					result += "\nRevenus Monde: "+movie.getRevenusMonde();
+					
+					result += "\nActeurs: ";
+					for(String s: movie.getActeurs()) {
+						result += s +", ";
+					}
+					result += "\nProducteurs: ";
+					for(String s: movie.getProducteurs()) {
+						result += s +", ";
+					}
+					result += "\nDirecteurs: ";
+					for(String s: movie.getDirecteurs()) {
+						result += s +", ";
+					}
 
-				result += "\nRésumé: "+movie.getResume();
+					result += "\nRésumé: "+movie.getResume();
+				}
+				
 				break;
 			case "actor":
+				if(movie.getDate()==null) {
+					movie.setDate(nonDispo);
+				}
+				if(movie.getGenre()==null) {
+					movie.setGenre(nonDispo);
+				}
+				if(movie.getDistributeur()==null) {
+					movie.setDistributeur(nonDispo);
+				}
 				result += "Titre: "+movie.getTitre();
 				result += "\nDate: "+movie.getDate();
 				result += "\nGenre: "+movie.getGenre();
