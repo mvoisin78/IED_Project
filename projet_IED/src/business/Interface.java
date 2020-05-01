@@ -15,10 +15,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
+import java.awt.Color;
 
 public class Interface extends JFrame {
 
-	private JFrame frame;
+	private JFrame frmFilmSearch;
 	private JTextField textField;
 
 	private Mediateur mediateur = new Mediateur();
@@ -32,7 +33,7 @@ public class Interface extends JFrame {
 			public void run() {
 				try {
 					Interface window = new Interface();
-					window.frame.setVisible(true);
+					window.frmFilmSearch.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,19 +52,24 @@ public class Interface extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 415, 450);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setResizable(false);
+		frmFilmSearch = new JFrame();
+		frmFilmSearch.setTitle("Film Search");
+		frmFilmSearch.getContentPane().setBackground(Color.GRAY);
+		frmFilmSearch.setBackground(Color.WHITE);
+		frmFilmSearch.setBounds(100, 100, 671, 450);
+		frmFilmSearch.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmFilmSearch.getContentPane().setLayout(null);
+		frmFilmSearch.setResizable(false);
 
 		JRadioButton rdbtnRechercheParTitre = new JRadioButton("Recherche par titre");
-		rdbtnRechercheParTitre.setBounds(39, 87, 151, 23);
-		frame.getContentPane().add(rdbtnRechercheParTitre);
+		rdbtnRechercheParTitre.setBackground(Color.WHITE);
+		rdbtnRechercheParTitre.setBounds(401, 29, 151, 23);
+		frmFilmSearch.getContentPane().add(rdbtnRechercheParTitre);
 
 		JRadioButton rdbtnRechercheParActeur = new JRadioButton("Recherche par acteur");
-		rdbtnRechercheParActeur.setBounds(39, 110, 151, 23);
-		frame.getContentPane().add(rdbtnRechercheParActeur);
+		rdbtnRechercheParActeur.setBackground(Color.WHITE);
+		rdbtnRechercheParActeur.setBounds(401, 55, 151, 23);
+		frmFilmSearch.getContentPane().add(rdbtnRechercheParActeur);
 
 		ButtonGroup group = new ButtonGroup();
 		rdbtnRechercheParTitre.setSelected(true);
@@ -71,20 +77,21 @@ public class Interface extends JFrame {
 		group.add(rdbtnRechercheParActeur);
 
 		textField = new JTextField();
-		textField.setBounds(45, 26, 310, 37);
-		frame.getContentPane().add(textField);
+		textField.setBounds(26, 35, 310, 37);
+		frmFilmSearch.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(26, 162, 348, 221);
-		frame.getContentPane().add(scrollPane);
+		scrollPane.setBounds(10, 162, 645, 221);
+		frmFilmSearch.getContentPane().add(scrollPane);
 
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		textArea.setLineWrap(true);
 
 		Button btnRecherche = new Button("Rechercher");
+		btnRecherche.setBackground(Color.WHITE);
 		btnRecherche.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = textField.getText();
@@ -96,8 +103,8 @@ public class Interface extends JFrame {
 				updateList(textArea);
 			}
 		});
-		btnRecherche.setBounds(225, 87, 119, 46);
-		frame.getContentPane().add(btnRecherche);
+		btnRecherche.setBounds(26, 97, 119, 46);
+		frmFilmSearch.getContentPane().add(btnRecherche);
 
 	}
 
