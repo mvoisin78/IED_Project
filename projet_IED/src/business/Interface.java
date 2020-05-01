@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Color;
 
+@SuppressWarnings("serial")
 public class Interface extends JFrame {
 
 	private JFrame frmFilmSearch;
