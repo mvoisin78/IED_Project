@@ -93,7 +93,7 @@ public class Mediateur {
 					if(movie.getResume()==null) {
 						movie.setResume(nonDispo);
 					}
-					result += "Titre: "+movie.getTitre();
+					result += "Titre du film: "+movie.getTitre();
 					result += "\nDate: "+movie.getDate();
 					result += "\nGenre: "+movie.getGenre();
 					result += "\nDistributeur: "+movie.getDistributeur();
@@ -128,7 +128,7 @@ public class Mediateur {
 				if(movie.getDistributeur()==null) {
 					movie.setDistributeur(nonDispo);
 				}
-				result += "Titre: "+movie.getTitre();
+				result += "Titre du film: "+movie.getTitre();
 				result += "\nDate: "+movie.getDate();
 				result += "\nGenre: "+movie.getGenre();
 				result += "\nDistributeur: "+movie.getDistributeur();
