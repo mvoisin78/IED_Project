@@ -1,35 +1,19 @@
 package business;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.border.EmptyBorder;
-
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JInternalFrame;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
 import java.awt.Button;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import java.awt.List;
-
-import data.Movie;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JList;
 import javax.swing.JTextArea;
-import javax.swing.DropMode;
 import javax.swing.ScrollPaneConstants;
 
 public class Interface extends JFrame {
